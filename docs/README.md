@@ -30,8 +30,6 @@ A partir de este diagrama de flujo, se empezó a diseñar la máquina de estados
 
 ### código:
 
-### código:
-
 #### flip-flops de flanco de subida y bajada conectados en serie para detectar vsync
 
 Estos flip-flops detectan cuando vsync ha realizado un flanco de subida y de bajada para generar la señal "ver" que llega al módulo del conversor. El siguiente es el código del flip-flop de flanco de subida el cual está conectado directamente en su entrada a la señal vsync de la cámara.
@@ -130,9 +128,61 @@ end//b
 end
 endmodule  
 ```
+
+### Módulo contador de pixeles
+
+En este módulo se aumenta el valor del contador a medida que se termina de cargar el byte que contiene el pixel en formato RGB332 en la memoria RAM de la cámara. La señal de salida  add_cnt=0 que proviene del módulo conversor, llega a add_cnt declarado como una entrada en el modulo contador. Si esta entrada es igual a cero, entonces se aumenta en 1 el valor del contador; si es igual a cero, entonces se espera hasta que se cargue un nuevo byte a la memoria. Una vez alcanzado el tope máximo del contador, es decir, 19200 entonces se carga este último byte y luego cuando href sea igual a cero se reinicia el contador y además se activa una señal de salida out_reset=1 que bloquea a los flip flops de vsync hasta que el usuario active un boton de entrada denominado new_photo que llega a la entrada inicio del módulo contador de pixeles para realizar una nueva captura de imagen.
+
+```verilog
+
+module contador(input in_reset,input inicio,input vsync,input add_cnt,input href, input pclk,output reg [15:0] counter=1, output reg out_reset=0);
+  
+  
+ always @(posedge pclk) begin
+
+if(href==1)
+begin //1
+if(add_cnt==0 & counter<19200) //19201 add_cnt ES LA SEÑAL add_cnt del conversor QUE PIDE AUMENTAR CONTADOR
+begin//2
+counter=counter+1;
+end//2
+end//1
+
+if((counter==19200 & href==0)/*||(in_reset==1)*/) //P
+begin//3
+out_reset=1;
+counter=1;
+end//3 
+/*
+if(inicio==1)
+begin //4
+out_reset=0;
+end//4
+*/
+
+end
+
+endmodule
+```
  
+Finalmente, el módulo cnt_ln_px se encarga de contar cuantos pixeles son grabados en cada linea horizontal de la pantalla. La condición básica es que si está activo write=1 y la variable cont_href es menor a 123 entonces aumente la cuenta en uno hasta llegar al tope maximo y luego se resetea e inicia una nueva cuenta.
+```verilog
+module cnt_ln_px(input write,input in_reset,output reg [7:0] cont_href=0
+    );
+always @(*) 
+begin	 
+if(write==1 & cont_href<123) //PL ES LA SEÑAL Z QUE PIDE AUMENTAR CONTADOR
+begin//1
+cont_href=cont_href+1;
+end//1
+if(cont_href==123 || in_reset==1) 
+begin//2
+cont_href=0;
+end//2
 
-
+end
+endmodule
+```
 
 
 
