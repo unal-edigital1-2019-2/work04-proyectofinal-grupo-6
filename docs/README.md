@@ -164,6 +164,7 @@ end
 
 endmodule
 ```
+### contador de pixeles de línea
  
 Finalmente, el módulo cnt_ln_px se encarga de contar cuantos pixeles son grabados en cada linea horizontal de la pantalla. La condición básica es que si está activo write=1 y la variable cont_href es menor a 123 entonces aumente la cuenta en uno hasta llegar al tope maximo y luego se resetea e inicia una nueva cuenta.
 ```verilog
