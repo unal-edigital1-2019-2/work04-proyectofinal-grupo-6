@@ -187,7 +187,7 @@ endmodule
 
 ## simulaciones (TestBench):
 
-para tal 
+
 
 ### primeros resultados:
 
