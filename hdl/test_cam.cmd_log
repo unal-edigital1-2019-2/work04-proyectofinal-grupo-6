@@ -1,0 +1,3 @@
+xst -intstyle ise -ifn "/home/ivan/work04-proyectofinal-grupo-6/hdl/test_cam.xst" -ofn "/home/ivan/work04-proyectofinal-grupo-6/hdl/test_cam.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc src/Nexys4_Master.ucf -p xc7a100t-csg324-3 test_cam.ngc test_cam.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc src/Nexys4_Master.ucf -p xc7a100t-csg324-3 test_cam.ngc test_cam.ngd  
