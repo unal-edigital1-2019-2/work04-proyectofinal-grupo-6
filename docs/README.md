@@ -26,11 +26,11 @@ El módulo "conversor" es el encargado de realizar la lógica secuencial encarga
 
 Luego de realizar el módulo de captura de datos (wp02), la metodología para corregir y rediseñar fue crear en primer lugar el diagrama funcional. Este diagrama se puede apreciar en la figura siguiente
 
-![calculos](https://github.com/unal-edigital1-2019-2/work03-smulacion-ov7670-grupo-06/blob/master/docs/figs/diagrama_de_flujo.jpg)
+![calculos](https://github.com/unal-edigital1-2019-2/work04-proyectofinal-grupo-6/blob/master/docs/figs/Doc2%20(1).jpg)
 
 A partir de este diagrama de flujo, se empezó a diseñar la máquina de estados algorítmicos, donde se identificaron 8 estados posibles para el funcionamiento de la captura de datos a partir de las señales de vsync, href, pclk, rst e inicio. El diagrama de la máquina de estados se presenta a continuacion. 
 
-![calculos](https://github.com/unal-edigital1-2019-2/work03-smulacion-ov7670-grupo-06/blob/master/docs/figs/maquina-de-estados.jpg)
+![calculos](https://github.com/unal-edigital1-2019-2/work04-proyectofinal-grupo-6/blob/master/docs/figs/maquina-de-estados%20(1).jpg)
 
 ### código:
 
