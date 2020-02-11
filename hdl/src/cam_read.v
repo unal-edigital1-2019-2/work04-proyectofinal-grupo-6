@@ -30,7 +30,8 @@ module cam_read #(
 		
 		output [AW-1:0] mem_px_addr,
 		output [7:0]  mem_px_data,
-		output px_wr
+		output px_wr,
+		output [7:0] cont_href
    );
 	
 

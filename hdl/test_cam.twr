@@ -1,0 +1,661 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/trce -intstyle ise -v 3 -s 3 -n
+3 -fastpaths -xml test_cam.twx test_cam.ncd -o test_cam.twr test_cam.pcf
+
+Design file:              test_cam.ncd
+Physical constraint file: test_cam.pcf
+Device,package,speed:     xc7a100t,csg324,C,-3 (PRODUCTION 1.10 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+================================================================================
+Timing constraint: TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 100 MHz HIGH 
+50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 0 paths analyzed, 0 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 component switching limit errors)
+ Minimum period is   4.000ns.
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 100 MHz HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 6.000ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 10.000ns
+  Low pulse: 5.000ns
+  Low pulse limit: 2.000ns (Tmmcmpw_CLKIN1_100_150)
+  Physical resource: clk25_24/mmcm_adv_inst/CLKIN1
+  Logical resource: clk25_24/mmcm_adv_inst/CLKIN1
+  Location pin: MMCME2_ADV_X0Y3.CLKIN1
+  Clock network: clk25_24/clkin1
+--------------------------------------------------------------------------------
+Slack: 6.000ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 10.000ns
+  High pulse: 5.000ns
+  High pulse limit: 2.000ns (Tmmcmpw_CLKIN1_100_150)
+  Physical resource: clk25_24/mmcm_adv_inst/CLKIN1
+  Logical resource: clk25_24/mmcm_adv_inst/CLKIN1
+  Location pin: MMCME2_ADV_X0Y3.CLKIN1
+  Clock network: clk25_24/clkin1
+--------------------------------------------------------------------------------
+Slack: 8.408ns (period - min period limit)
+  Period: 10.000ns
+  Min period limit: 1.592ns (628.141MHz) (Tbcper_I(Fmax))
+  Physical resource: clk25_24/clkin1_buf/I0
+  Logical resource: clk25_24/clkin1_buf/I0
+  Location pin: BUFGCTRL_X0Y25.I0
+  Clock network: clk_IBUFG
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: TS_clk25_24_clkout0 = PERIOD TIMEGRP "clk25_24_clkout0" 
+TS_sys_clk_pin * 0.25         HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 33826 paths analyzed, 295 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   6.202ns.
+--------------------------------------------------------------------------------
+
+Paths for end point DP_RAM/Mram_ram3 (RAMB36_X3Y25.ADDRBWRADDRL13), 422 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     33.798ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               VGA640x480/countY_3 (FF)
+  Destination:          DP_RAM/Mram_ram3 (RAM)
+  Requirement:          40.000ns
+  Data Path Delay:      6.189ns (Levels of Logic = 5)
+  Clock Path Skew:      0.069ns (0.663 - 0.594)
+  Source Clock:         clk25M rising at 0.000ns
+  Destination Clock:    clk25M rising at 40.000ns
+  Clock Uncertainty:    0.082ns
+
+  Clock Uncertainty:          0.082ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.148ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: VGA640x480/countY_3 to DP_RAM/Mram_ram3
+    Location                    Delay type         Delay(ns)  Physical Resource
+                                                              Logical Resource(s)
+    --------------------------------------------------------  -------------------
+    SLICE_X52Y130.DQ            Tcko                  0.341   VGA640x480/countY<3>
+                                                              VGA640x480/countY_3
+    SLICE_X54Y131.A2            net (fanout=17)       0.689   VGA640x480/countY<3>
+    SLICE_X54Y131.AMUX          Tilo                  0.237   Maddsub_n0030_Madd2_cy<6>
+                                                              Maddsub_n0030_Madd1_xor<8>11
+    SLICE_X55Y130.D3            net (fanout=1)        0.452   Maddsub_n0030_Madd_111
+    SLICE_X55Y130.COUT          Topcyd                0.396   Maddsub_n0030_Madd3_cy<10>
+                                                              Maddsub_n0030_Madd3_lut<10>
+                                                              Maddsub_n0030_Madd3_cy<10>
+    SLICE_X55Y131.CIN           net (fanout=1)        0.000   Maddsub_n0030_Madd3_cy<10>
+    SLICE_X55Y131.AMUX          Tcina                 0.286   Maddsub_n0030_14
+                                                              Maddsub_n0030_Madd3_xor<13>
+    SLICE_X59Y131.B4            net (fanout=1)        0.526   Maddsub_n0030_12
+    SLICE_X59Y131.CMUX          Topbc                 0.662   n0024<14>
+                                                              Maddsub_n0030_12_rt
+                                                              Maddsub_n0030_Madd_xor<14>
+    SLICE_X61Y131.C2            net (fanout=1)        0.585   n0024<13>
+    SLICE_X61Y131.CMUX          Tilo                  0.242   DP_RAM_addr_out<14>
+                                                              Mmux_DP_RAM_addr_out51
+    RAMB36_X3Y25.ADDRBWRADDRL13 net (fanout=16)       1.331   DP_RAM_addr_out<13>
+    RAMB36_X3Y25.CLKBWRCLKL     Trcck_ADDRB           0.442   DP_RAM/Mram_ram3
+                                                              DP_RAM/Mram_ram3
+    --------------------------------------------------------  ---------------------------
+    Total                                             6.189ns (2.606ns logic, 3.583ns route)
+                                                              (42.1% logic, 57.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     33.829ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               VGA640x480/countY_8 (FF)
+  Destination:          DP_RAM/Mram_ram3 (RAM)
+  Requirement:          40.000ns
+  Data Path Delay:      6.156ns (Levels of Logic = 5)
+  Clock Path Skew:      0.067ns (0.663 - 0.596)
+  Source Clock:         clk25M rising at 0.000ns
+  Destination Clock:    clk25M rising at 40.000ns
+  Clock Uncertainty:    0.082ns
+
+  Clock Uncertainty:          0.082ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.148ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: VGA640x480/countY_8 to DP_RAM/Mram_ram3
+    Location                    Delay type         Delay(ns)  Physical Resource
+                                                              Logical Resource(s)
+    --------------------------------------------------------  -------------------
+    SLICE_X52Y132.AQ            Tcko                  0.341   VGA640x480/countY<8>
+                                                              VGA640x480/countY_8
+    SLICE_X54Y131.A1            net (fanout=7)        0.656   VGA640x480/countY<8>
+    SLICE_X54Y131.AMUX          Tilo                  0.237   Maddsub_n0030_Madd2_cy<6>
+                                                              Maddsub_n0030_Madd1_xor<8>11
+    SLICE_X55Y130.D3            net (fanout=1)        0.452   Maddsub_n0030_Madd_111
+    SLICE_X55Y130.COUT          Topcyd                0.396   Maddsub_n0030_Madd3_cy<10>
+                                                              Maddsub_n0030_Madd3_lut<10>
+                                                              Maddsub_n0030_Madd3_cy<10>
+    SLICE_X55Y131.CIN           net (fanout=1)        0.000   Maddsub_n0030_Madd3_cy<10>
+    SLICE_X55Y131.AMUX          Tcina                 0.286   Maddsub_n0030_14
+                                                              Maddsub_n0030_Madd3_xor<13>
+    SLICE_X59Y131.B4            net (fanout=1)        0.526   Maddsub_n0030_12
+    SLICE_X59Y131.CMUX          Topbc                 0.662   n0024<14>
+                                                              Maddsub_n0030_12_rt
+                                                              Maddsub_n0030_Madd_xor<14>
+    SLICE_X61Y131.C2            net (fanout=1)        0.585   n0024<13>
+    SLICE_X61Y131.CMUX          Tilo                  0.242   DP_RAM_addr_out<14>
+                                                              Mmux_DP_RAM_addr_out51
+    RAMB36_X3Y25.ADDRBWRADDRL13 net (fanout=16)       1.331   DP_RAM_addr_out<13>
+    RAMB36_X3Y25.CLKBWRCLKL     Trcck_ADDRB           0.442   DP_RAM/Mram_ram3
+                                                              DP_RAM/Mram_ram3
+    --------------------------------------------------------  ---------------------------
+    Total                                             6.156ns (2.606ns logic, 3.550ns route)
+                                                              (42.3% logic, 57.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     33.844ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               VGA640x480/countY_4 (FF)
+  Destination:          DP_RAM/Mram_ram3 (RAM)
+  Requirement:          40.000ns
+  Data Path Delay:      6.142ns (Levels of Logic = 4)
+  Clock Path Skew:      0.068ns (0.663 - 0.595)
+  Source Clock:         clk25M rising at 0.000ns
+  Destination Clock:    clk25M rising at 40.000ns
+  Clock Uncertainty:    0.082ns
+
+  Clock Uncertainty:          0.082ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.148ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: VGA640x480/countY_4 to DP_RAM/Mram_ram3
+    Location                    Delay type         Delay(ns)  Physical Resource
+                                                              Logical Resource(s)
+    --------------------------------------------------------  -------------------
+    SLICE_X52Y131.AQ            Tcko                  0.341   VGA640x480/countY<7>
+                                                              VGA640x480/countY_4
+    SLICE_X54Y130.A1            net (fanout=7)        0.664   VGA640x480/countY<4>
+    SLICE_X54Y130.A             Tilo                  0.097   Maddsub_n0030_Madd_102
+                                                              Maddsub_n0030_Madd1_xor<7>11
+    SLICE_X55Y130.B3            net (fanout=2)        0.361   Maddsub_n0030_Madd_91
+    SLICE_X55Y130.DMUX          Topbd                 0.711   Maddsub_n0030_Madd3_cy<10>
+                                                              Maddsub_n0030_Madd3_lut<8>
+                                                              Maddsub_n0030_Madd3_cy<10>
+    SLICE_X59Y131.A2            net (fanout=1)        0.731   Maddsub_n0030_11
+    SLICE_X59Y131.CMUX          Topac                 0.637   n0024<14>
+                                                              Maddsub_n0030_11_rt
+                                                              Maddsub_n0030_Madd_xor<14>
+    SLICE_X61Y131.C2            net (fanout=1)        0.585   n0024<13>
+    SLICE_X61Y131.CMUX          Tilo                  0.242   DP_RAM_addr_out<14>
+                                                              Mmux_DP_RAM_addr_out51
+    RAMB36_X3Y25.ADDRBWRADDRL13 net (fanout=16)       1.331   DP_RAM_addr_out<13>
+    RAMB36_X3Y25.CLKBWRCLKL     Trcck_ADDRB           0.442   DP_RAM/Mram_ram3
+                                                              DP_RAM/Mram_ram3
+    --------------------------------------------------------  ---------------------------
+    Total                                             6.142ns (2.470ns logic, 3.672ns route)
+                                                              (40.2% logic, 59.8% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point DP_RAM/Mram_ram3 (RAMB36_X3Y25.ADDRBWRADDRU13), 422 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     33.798ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               VGA640x480/countY_3 (FF)
+  Destination:          DP_RAM/Mram_ram3 (RAM)
+  Requirement:          40.000ns
+  Data Path Delay:      6.189ns (Levels of Logic = 5)
+  Clock Path Skew:      0.069ns (0.663 - 0.594)
+  Source Clock:         clk25M rising at 0.000ns
+  Destination Clock:    clk25M rising at 40.000ns
+  Clock Uncertainty:    0.082ns
+
+  Clock Uncertainty:          0.082ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.148ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: VGA640x480/countY_3 to DP_RAM/Mram_ram3
+    Location                    Delay type         Delay(ns)  Physical Resource
+                                                              Logical Resource(s)
+    --------------------------------------------------------  -------------------
+    SLICE_X52Y130.DQ            Tcko                  0.341   VGA640x480/countY<3>
+                                                              VGA640x480/countY_3
+    SLICE_X54Y131.A2            net (fanout=17)       0.689   VGA640x480/countY<3>
+    SLICE_X54Y131.AMUX          Tilo                  0.237   Maddsub_n0030_Madd2_cy<6>
+                                                              Maddsub_n0030_Madd1_xor<8>11
+    SLICE_X55Y130.D3            net (fanout=1)        0.452   Maddsub_n0030_Madd_111
+    SLICE_X55Y130.COUT          Topcyd                0.396   Maddsub_n0030_Madd3_cy<10>
+                                                              Maddsub_n0030_Madd3_lut<10>
+                                                              Maddsub_n0030_Madd3_cy<10>
+    SLICE_X55Y131.CIN           net (fanout=1)        0.000   Maddsub_n0030_Madd3_cy<10>
+    SLICE_X55Y131.AMUX          Tcina                 0.286   Maddsub_n0030_14
+                                                              Maddsub_n0030_Madd3_xor<13>
+    SLICE_X59Y131.B4            net (fanout=1)        0.526   Maddsub_n0030_12
+    SLICE_X59Y131.CMUX          Topbc                 0.662   n0024<14>
+                                                              Maddsub_n0030_12_rt
+                                                              Maddsub_n0030_Madd_xor<14>
+    SLICE_X61Y131.C2            net (fanout=1)        0.585   n0024<13>
+    SLICE_X61Y131.CMUX          Tilo                  0.242   DP_RAM_addr_out<14>
+                                                              Mmux_DP_RAM_addr_out51
+    RAMB36_X3Y25.ADDRBWRADDRU13 net (fanout=16)       1.331   DP_RAM_addr_out<13>
+    RAMB36_X3Y25.CLKBWRCLKU     Trcck_ADDRB           0.442   DP_RAM/Mram_ram3
+                                                              DP_RAM/Mram_ram3
+    --------------------------------------------------------  ---------------------------
+    Total                                             6.189ns (2.606ns logic, 3.583ns route)
+                                                              (42.1% logic, 57.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     33.829ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               VGA640x480/countY_8 (FF)
+  Destination:          DP_RAM/Mram_ram3 (RAM)
+  Requirement:          40.000ns
+  Data Path Delay:      6.156ns (Levels of Logic = 5)
+  Clock Path Skew:      0.067ns (0.663 - 0.596)
+  Source Clock:         clk25M rising at 0.000ns
+  Destination Clock:    clk25M rising at 40.000ns
+  Clock Uncertainty:    0.082ns
+
+  Clock Uncertainty:          0.082ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.148ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: VGA640x480/countY_8 to DP_RAM/Mram_ram3
+    Location                    Delay type         Delay(ns)  Physical Resource
+                                                              Logical Resource(s)
+    --------------------------------------------------------  -------------------
+    SLICE_X52Y132.AQ            Tcko                  0.341   VGA640x480/countY<8>
+                                                              VGA640x480/countY_8
+    SLICE_X54Y131.A1            net (fanout=7)        0.656   VGA640x480/countY<8>
+    SLICE_X54Y131.AMUX          Tilo                  0.237   Maddsub_n0030_Madd2_cy<6>
+                                                              Maddsub_n0030_Madd1_xor<8>11
+    SLICE_X55Y130.D3            net (fanout=1)        0.452   Maddsub_n0030_Madd_111
+    SLICE_X55Y130.COUT          Topcyd                0.396   Maddsub_n0030_Madd3_cy<10>
+                                                              Maddsub_n0030_Madd3_lut<10>
+                                                              Maddsub_n0030_Madd3_cy<10>
+    SLICE_X55Y131.CIN           net (fanout=1)        0.000   Maddsub_n0030_Madd3_cy<10>
+    SLICE_X55Y131.AMUX          Tcina                 0.286   Maddsub_n0030_14
+                                                              Maddsub_n0030_Madd3_xor<13>
+    SLICE_X59Y131.B4            net (fanout=1)        0.526   Maddsub_n0030_12
+    SLICE_X59Y131.CMUX          Topbc                 0.662   n0024<14>
+                                                              Maddsub_n0030_12_rt
+                                                              Maddsub_n0030_Madd_xor<14>
+    SLICE_X61Y131.C2            net (fanout=1)        0.585   n0024<13>
+    SLICE_X61Y131.CMUX          Tilo                  0.242   DP_RAM_addr_out<14>
+                                                              Mmux_DP_RAM_addr_out51
+    RAMB36_X3Y25.ADDRBWRADDRU13 net (fanout=16)       1.331   DP_RAM_addr_out<13>
+    RAMB36_X3Y25.CLKBWRCLKU     Trcck_ADDRB           0.442   DP_RAM/Mram_ram3
+                                                              DP_RAM/Mram_ram3
+    --------------------------------------------------------  ---------------------------
+    Total                                             6.156ns (2.606ns logic, 3.550ns route)
+                                                              (42.3% logic, 57.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     33.844ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               VGA640x480/countY_4 (FF)
+  Destination:          DP_RAM/Mram_ram3 (RAM)
+  Requirement:          40.000ns
+  Data Path Delay:      6.142ns (Levels of Logic = 4)
+  Clock Path Skew:      0.068ns (0.663 - 0.595)
+  Source Clock:         clk25M rising at 0.000ns
+  Destination Clock:    clk25M rising at 40.000ns
+  Clock Uncertainty:    0.082ns
+
+  Clock Uncertainty:          0.082ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.148ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: VGA640x480/countY_4 to DP_RAM/Mram_ram3
+    Location                    Delay type         Delay(ns)  Physical Resource
+                                                              Logical Resource(s)
+    --------------------------------------------------------  -------------------
+    SLICE_X52Y131.AQ            Tcko                  0.341   VGA640x480/countY<7>
+                                                              VGA640x480/countY_4
+    SLICE_X54Y130.A1            net (fanout=7)        0.664   VGA640x480/countY<4>
+    SLICE_X54Y130.A             Tilo                  0.097   Maddsub_n0030_Madd_102
+                                                              Maddsub_n0030_Madd1_xor<7>11
+    SLICE_X55Y130.B3            net (fanout=2)        0.361   Maddsub_n0030_Madd_91
+    SLICE_X55Y130.DMUX          Topbd                 0.711   Maddsub_n0030_Madd3_cy<10>
+                                                              Maddsub_n0030_Madd3_lut<8>
+                                                              Maddsub_n0030_Madd3_cy<10>
+    SLICE_X59Y131.A2            net (fanout=1)        0.731   Maddsub_n0030_11
+    SLICE_X59Y131.CMUX          Topac                 0.637   n0024<14>
+                                                              Maddsub_n0030_11_rt
+                                                              Maddsub_n0030_Madd_xor<14>
+    SLICE_X61Y131.C2            net (fanout=1)        0.585   n0024<13>
+    SLICE_X61Y131.CMUX          Tilo                  0.242   DP_RAM_addr_out<14>
+                                                              Mmux_DP_RAM_addr_out51
+    RAMB36_X3Y25.ADDRBWRADDRU13 net (fanout=16)       1.331   DP_RAM_addr_out<13>
+    RAMB36_X3Y25.CLKBWRCLKU     Trcck_ADDRB           0.442   DP_RAM/Mram_ram3
+                                                              DP_RAM/Mram_ram3
+    --------------------------------------------------------  ---------------------------
+    Total                                             6.142ns (2.470ns logic, 3.672ns route)
+                                                              (40.2% logic, 59.8% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point DP_RAM/Mram_ram7 (RAMB36_X3Y27.ADDRBWRADDRL13), 422 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     33.808ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               VGA640x480/countY_3 (FF)
+  Destination:          DP_RAM/Mram_ram7 (RAM)
+  Requirement:          40.000ns
+  Data Path Delay:      6.189ns (Levels of Logic = 5)
+  Clock Path Skew:      0.079ns (0.673 - 0.594)
+  Source Clock:         clk25M rising at 0.000ns
+  Destination Clock:    clk25M rising at 40.000ns
+  Clock Uncertainty:    0.082ns
+
+  Clock Uncertainty:          0.082ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.148ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: VGA640x480/countY_3 to DP_RAM/Mram_ram7
+    Location                    Delay type         Delay(ns)  Physical Resource
+                                                              Logical Resource(s)
+    --------------------------------------------------------  -------------------
+    SLICE_X52Y130.DQ            Tcko                  0.341   VGA640x480/countY<3>
+                                                              VGA640x480/countY_3
+    SLICE_X54Y131.A2            net (fanout=17)       0.689   VGA640x480/countY<3>
+    SLICE_X54Y131.AMUX          Tilo                  0.237   Maddsub_n0030_Madd2_cy<6>
+                                                              Maddsub_n0030_Madd1_xor<8>11
+    SLICE_X55Y130.D3            net (fanout=1)        0.452   Maddsub_n0030_Madd_111
+    SLICE_X55Y130.COUT          Topcyd                0.396   Maddsub_n0030_Madd3_cy<10>
+                                                              Maddsub_n0030_Madd3_lut<10>
+                                                              Maddsub_n0030_Madd3_cy<10>
+    SLICE_X55Y131.CIN           net (fanout=1)        0.000   Maddsub_n0030_Madd3_cy<10>
+    SLICE_X55Y131.AMUX          Tcina                 0.286   Maddsub_n0030_14
+                                                              Maddsub_n0030_Madd3_xor<13>
+    SLICE_X59Y131.B4            net (fanout=1)        0.526   Maddsub_n0030_12
+    SLICE_X59Y131.CMUX          Topbc                 0.662   n0024<14>
+                                                              Maddsub_n0030_12_rt
+                                                              Maddsub_n0030_Madd_xor<14>
+    SLICE_X61Y131.C2            net (fanout=1)        0.585   n0024<13>
+    SLICE_X61Y131.CMUX          Tilo                  0.242   DP_RAM_addr_out<14>
+                                                              Mmux_DP_RAM_addr_out51
+    RAMB36_X3Y27.ADDRBWRADDRL13 net (fanout=16)       1.331   DP_RAM_addr_out<13>
+    RAMB36_X3Y27.CLKBWRCLKL     Trcck_ADDRB           0.442   DP_RAM/Mram_ram7
+                                                              DP_RAM/Mram_ram7
+    --------------------------------------------------------  ---------------------------
+    Total                                             6.189ns (2.606ns logic, 3.583ns route)
+                                                              (42.1% logic, 57.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     33.839ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               VGA640x480/countY_8 (FF)
+  Destination:          DP_RAM/Mram_ram7 (RAM)
+  Requirement:          40.000ns
+  Data Path Delay:      6.156ns (Levels of Logic = 5)
+  Clock Path Skew:      0.077ns (0.673 - 0.596)
+  Source Clock:         clk25M rising at 0.000ns
+  Destination Clock:    clk25M rising at 40.000ns
+  Clock Uncertainty:    0.082ns
+
+  Clock Uncertainty:          0.082ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.148ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: VGA640x480/countY_8 to DP_RAM/Mram_ram7
+    Location                    Delay type         Delay(ns)  Physical Resource
+                                                              Logical Resource(s)
+    --------------------------------------------------------  -------------------
+    SLICE_X52Y132.AQ            Tcko                  0.341   VGA640x480/countY<8>
+                                                              VGA640x480/countY_8
+    SLICE_X54Y131.A1            net (fanout=7)        0.656   VGA640x480/countY<8>
+    SLICE_X54Y131.AMUX          Tilo                  0.237   Maddsub_n0030_Madd2_cy<6>
+                                                              Maddsub_n0030_Madd1_xor<8>11
+    SLICE_X55Y130.D3            net (fanout=1)        0.452   Maddsub_n0030_Madd_111
+    SLICE_X55Y130.COUT          Topcyd                0.396   Maddsub_n0030_Madd3_cy<10>
+                                                              Maddsub_n0030_Madd3_lut<10>
+                                                              Maddsub_n0030_Madd3_cy<10>
+    SLICE_X55Y131.CIN           net (fanout=1)        0.000   Maddsub_n0030_Madd3_cy<10>
+    SLICE_X55Y131.AMUX          Tcina                 0.286   Maddsub_n0030_14
+                                                              Maddsub_n0030_Madd3_xor<13>
+    SLICE_X59Y131.B4            net (fanout=1)        0.526   Maddsub_n0030_12
+    SLICE_X59Y131.CMUX          Topbc                 0.662   n0024<14>
+                                                              Maddsub_n0030_12_rt
+                                                              Maddsub_n0030_Madd_xor<14>
+    SLICE_X61Y131.C2            net (fanout=1)        0.585   n0024<13>
+    SLICE_X61Y131.CMUX          Tilo                  0.242   DP_RAM_addr_out<14>
+                                                              Mmux_DP_RAM_addr_out51
+    RAMB36_X3Y27.ADDRBWRADDRL13 net (fanout=16)       1.331   DP_RAM_addr_out<13>
+    RAMB36_X3Y27.CLKBWRCLKL     Trcck_ADDRB           0.442   DP_RAM/Mram_ram7
+                                                              DP_RAM/Mram_ram7
+    --------------------------------------------------------  ---------------------------
+    Total                                             6.156ns (2.606ns logic, 3.550ns route)
+                                                              (42.3% logic, 57.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     33.854ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               VGA640x480/countY_4 (FF)
+  Destination:          DP_RAM/Mram_ram7 (RAM)
+  Requirement:          40.000ns
+  Data Path Delay:      6.142ns (Levels of Logic = 4)
+  Clock Path Skew:      0.078ns (0.673 - 0.595)
+  Source Clock:         clk25M rising at 0.000ns
+  Destination Clock:    clk25M rising at 40.000ns
+  Clock Uncertainty:    0.082ns
+
+  Clock Uncertainty:          0.082ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.148ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: VGA640x480/countY_4 to DP_RAM/Mram_ram7
+    Location                    Delay type         Delay(ns)  Physical Resource
+                                                              Logical Resource(s)
+    --------------------------------------------------------  -------------------
+    SLICE_X52Y131.AQ            Tcko                  0.341   VGA640x480/countY<7>
+                                                              VGA640x480/countY_4
+    SLICE_X54Y130.A1            net (fanout=7)        0.664   VGA640x480/countY<4>
+    SLICE_X54Y130.A             Tilo                  0.097   Maddsub_n0030_Madd_102
+                                                              Maddsub_n0030_Madd1_xor<7>11
+    SLICE_X55Y130.B3            net (fanout=2)        0.361   Maddsub_n0030_Madd_91
+    SLICE_X55Y130.DMUX          Topbd                 0.711   Maddsub_n0030_Madd3_cy<10>
+                                                              Maddsub_n0030_Madd3_lut<8>
+                                                              Maddsub_n0030_Madd3_cy<10>
+    SLICE_X59Y131.A2            net (fanout=1)        0.731   Maddsub_n0030_11
+    SLICE_X59Y131.CMUX          Topac                 0.637   n0024<14>
+                                                              Maddsub_n0030_11_rt
+                                                              Maddsub_n0030_Madd_xor<14>
+    SLICE_X61Y131.C2            net (fanout=1)        0.585   n0024<13>
+    SLICE_X61Y131.CMUX          Tilo                  0.242   DP_RAM_addr_out<14>
+                                                              Mmux_DP_RAM_addr_out51
+    RAMB36_X3Y27.ADDRBWRADDRL13 net (fanout=16)       1.331   DP_RAM_addr_out<13>
+    RAMB36_X3Y27.CLKBWRCLKL     Trcck_ADDRB           0.442   DP_RAM/Mram_ram7
+                                                              DP_RAM/Mram_ram7
+    --------------------------------------------------------  ---------------------------
+    Total                                             6.142ns (2.470ns logic, 3.672ns route)
+                                                              (40.2% logic, 59.8% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: TS_clk25_24_clkout0 = PERIOD TIMEGRP "clk25_24_clkout0" TS_sys_clk_pin * 0.25
+        HIGH 50%;
+--------------------------------------------------------------------------------
+
+Paths for end point VGA640x480/countY_8 (SLICE_X52Y132.A3), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.345ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               VGA640x480/countY_8 (FF)
+  Destination:          VGA640x480/countY_8 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.345ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk25M rising at 40.000ns
+  Destination Clock:    clk25M rising at 40.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: VGA640x480/countY_8 to VGA640x480/countY_8
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X52Y132.AQ     Tcko                  0.141   VGA640x480/countY<8>
+                                                       VGA640x480/countY_8
+    SLICE_X52Y132.A3     net (fanout=7)        0.194   VGA640x480/countY<8>
+    SLICE_X52Y132.CLK    Tah         (-Th)    -0.010   VGA640x480/countY<8>
+                                                       VGA640x480/countY<8>_rt
+                                                       VGA640x480/Mcount_countY_xor<8>
+                                                       VGA640x480/countY_8
+    -------------------------------------------------  ---------------------------
+    Total                                      0.345ns (0.151ns logic, 0.194ns route)
+                                                       (43.8% logic, 56.2% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point VGA640x480/countY_0 (SLICE_X52Y130.A3), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.346ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               VGA640x480/countY_0 (FF)
+  Destination:          VGA640x480/countY_0 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.346ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk25M rising at 40.000ns
+  Destination Clock:    clk25M rising at 40.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: VGA640x480/countY_0 to VGA640x480/countY_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X52Y130.AQ     Tcko                  0.141   VGA640x480/countY<3>
+                                                       VGA640x480/countY_0
+    SLICE_X52Y130.A3     net (fanout=10)       0.195   VGA640x480/countY<0>
+    SLICE_X52Y130.CLK    Tah         (-Th)    -0.010   VGA640x480/countY<3>
+                                                       VGA640x480/Mcount_countY_lut<0>_INV_0
+                                                       VGA640x480/Mcount_countY_cy<3>
+                                                       VGA640x480/countY_0
+    -------------------------------------------------  ---------------------------
+    Total                                      0.346ns (0.151ns logic, 0.195ns route)
+                                                       (43.6% logic, 56.4% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point VGA640x480/countY_7 (SLICE_X52Y131.D3), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.359ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               VGA640x480/countY_7 (FF)
+  Destination:          VGA640x480/countY_7 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.359ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk25M rising at 40.000ns
+  Destination Clock:    clk25M rising at 40.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: VGA640x480/countY_7 to VGA640x480/countY_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X52Y131.DQ     Tcko                  0.141   VGA640x480/countY<7>
+                                                       VGA640x480/countY_7
+    SLICE_X52Y131.D3     net (fanout=11)       0.215   VGA640x480/countY<7>
+    SLICE_X52Y131.CLK    Tah         (-Th)    -0.003   VGA640x480/countY<7>
+                                                       VGA640x480/countY<7>_rt
+                                                       VGA640x480/Mcount_countY_cy<7>
+                                                       VGA640x480/countY_7
+    -------------------------------------------------  ---------------------------
+    Total                                      0.359ns (0.144ns logic, 0.215ns route)
+                                                       (40.1% logic, 59.9% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_clk25_24_clkout0 = PERIOD TIMEGRP "clk25_24_clkout0" TS_sys_clk_pin * 0.25
+        HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 38.038ns (period - min period limit)
+  Period: 40.000ns
+  Min period limit: 1.962ns (509.684MHz) (Trper_CLKB)
+  Physical resource: DP_RAM/Mram_ram1/CLKBWRCLKL
+  Logical resource: DP_RAM/Mram_ram1/CLKBWRCLKL
+  Location pin: RAMB36_X1Y26.CLKBWRCLKL
+  Clock network: clk25M
+--------------------------------------------------------------------------------
+Slack: 38.038ns (period - min period limit)
+  Period: 40.000ns
+  Min period limit: 1.962ns (509.684MHz) (Trper_CLK_WF_NC(FMAX_BRAM_WF_NC))
+  Physical resource: DP_RAM/Mram_ram1/CLKBWRCLKU
+  Logical resource: DP_RAM/Mram_ram1/CLKBWRCLKU
+  Location pin: RAMB36_X1Y26.CLKBWRCLKU
+  Clock network: clk25M
+--------------------------------------------------------------------------------
+Slack: 38.038ns (period - min period limit)
+  Period: 40.000ns
+  Min period limit: 1.962ns (509.684MHz) (Trper_CLKB)
+  Physical resource: DP_RAM/Mram_ram2/CLKBWRCLKL
+  Logical resource: DP_RAM/Mram_ram2/CLKBWRCLKL
+  Location pin: RAMB36_X3Y26.CLKBWRCLKL
+  Clock network: clk25M
+--------------------------------------------------------------------------------
+
+
+Derived Constraint Report
+Derived Constraints for TS_sys_clk_pin
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|TS_sys_clk_pin                 |     10.000ns|      4.000ns|      1.550ns|            0|            0|            0|        33826|
+| TS_clk25_24_clkout0           |     40.000ns|      6.202ns|          N/A|            0|            0|        33826|            0|
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    6.202|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 33826 paths, 0 nets, and 486 connections
+
+Design statistics:
+   Minimum period:   6.202ns{1}   (Maximum frequency: 161.238MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Tue Feb 11 07:36:49 2020 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 766 MB
+
+
+

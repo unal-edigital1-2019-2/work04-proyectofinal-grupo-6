@@ -12,148 +12,6 @@ Done.
 Annotating constraints to design from ucf file "src/Nexys4_Master.ucf" ...
 Resolving constraint associations...
 Checking Constraint Associations...
-ERROR:ConstraintSystem:59 - Constraint <NET "CAM_cnt_linea<0>"			LOC = "T8"	|>
-   [src/Nexys4_Master.ucf(30)]: NET "CAM_cnt_linea<0>" not found.  Please verify
-   that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "CAM_cnt_linea<0>"			LOC = "T8"	|> [src/Nexys4_Master.ucf(30)]' could
-   not be found and so the Locate constraint will be removed.
-
-ERROR:ConstraintSystem:59 - Constraint <IOSTANDARD = "LVCMOS33";>
-   [src/Nexys4_Master.ucf(30)]: NET "CAM_cnt_linea<0>" not found.  Please verify
-   that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-ERROR:ConstraintSystem:59 - Constraint <NET "CAM_cnt_linea<1>"			LOC = "V9"	|>
-   [src/Nexys4_Master.ucf(31)]: NET "CAM_cnt_linea<1>" not found.  Please verify
-   that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "CAM_cnt_linea<1>"			LOC = "V9"	|> [src/Nexys4_Master.ucf(31)]' could
-   not be found and so the Locate constraint will be removed.
-
-ERROR:ConstraintSystem:59 - Constraint <IOSTANDARD = "LVCMOS33";>
-   [src/Nexys4_Master.ucf(31)]: NET "CAM_cnt_linea<1>" not found.  Please verify
-   that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-ERROR:ConstraintSystem:59 - Constraint <NET "CAM_cnt_linea<2>"			LOC = "R8"	|>
-   [src/Nexys4_Master.ucf(32)]: NET "CAM_cnt_linea<2>" not found.  Please verify
-   that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "CAM_cnt_linea<2>"			LOC = "R8"	|> [src/Nexys4_Master.ucf(32)]' could
-   not be found and so the Locate constraint will be removed.
-
-ERROR:ConstraintSystem:59 - Constraint <IOSTANDARD = "LVCMOS33";>
-   [src/Nexys4_Master.ucf(32)]: NET "CAM_cnt_linea<2>" not found.  Please verify
-   that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-ERROR:ConstraintSystem:59 - Constraint <NET "CAM_cnt_linea<3>"			LOC = "T6"	|>
-   [src/Nexys4_Master.ucf(33)]: NET "CAM_cnt_linea<3>" not found.  Please verify
-   that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "CAM_cnt_linea<3>"			LOC = "T6"	|> [src/Nexys4_Master.ucf(33)]' could
-   not be found and so the Locate constraint will be removed.
-
-ERROR:ConstraintSystem:59 - Constraint <IOSTANDARD = "LVCMOS33";>
-   [src/Nexys4_Master.ucf(33)]: NET "CAM_cnt_linea<3>" not found.  Please verify
-   that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-ERROR:ConstraintSystem:59 - Constraint <NET "CAM_cnt_linea<4>"			LOC = "T5"	|>
-   [src/Nexys4_Master.ucf(34)]: NET "CAM_cnt_linea<4>" not found.  Please verify
-   that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "CAM_cnt_linea<4>"			LOC = "T5"	|> [src/Nexys4_Master.ucf(34)]' could
-   not be found and so the Locate constraint will be removed.
-
-ERROR:ConstraintSystem:59 - Constraint <IOSTANDARD = "LVCMOS33";>
-   [src/Nexys4_Master.ucf(34)]: NET "CAM_cnt_linea<4>" not found.  Please verify
-   that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-ERROR:ConstraintSystem:59 - Constraint <NET "CAM_cnt_linea<5>"			LOC = "T4"	|>
-   [src/Nexys4_Master.ucf(35)]: NET "CAM_cnt_linea<5>" not found.  Please verify
-   that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "CAM_cnt_linea<5>"			LOC = "T4"	|> [src/Nexys4_Master.ucf(35)]' could
-   not be found and so the Locate constraint will be removed.
-
-ERROR:ConstraintSystem:59 - Constraint <IOSTANDARD = "LVCMOS33";>
-   [src/Nexys4_Master.ucf(35)]: NET "CAM_cnt_linea<5>" not found.  Please verify
-   that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-ERROR:ConstraintSystem:59 - Constraint <NET "CAM_cnt_linea<6>"			LOC = "U7"	|>
-   [src/Nexys4_Master.ucf(36)]: NET "CAM_cnt_linea<6>" not found.  Please verify
-   that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "CAM_cnt_linea<6>"			LOC = "U7"	|> [src/Nexys4_Master.ucf(36)]' could
-   not be found and so the Locate constraint will be removed.
-
-ERROR:ConstraintSystem:59 - Constraint <IOSTANDARD = "LVCMOS33";>
-   [src/Nexys4_Master.ucf(36)]: NET "CAM_cnt_linea<6>" not found.  Please verify
-   that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-ERROR:ConstraintSystem:59 - Constraint <NET "CAM_cnt_linea<7>"			LOC = "U6"	|>
-   [src/Nexys4_Master.ucf(37)]: NET "CAM_cnt_linea<7>" not found.  Please verify
-   that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "CAM_cnt_linea<7>"			LOC = "U6"	|> [src/Nexys4_Master.ucf(37)]' could
-   not be found and so the Locate constraint will be removed.
-
-ERROR:ConstraintSystem:59 - Constraint <IOSTANDARD = "LVCMOS33";>
-   [src/Nexys4_Master.ucf(37)]: NET "CAM_cnt_linea<7>" not found.  Please verify
-   that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-ERROR:ConstraintSystem:59 - Constraint <NET "inicio"				LOC = "T16"	|>
-   [src/Nexys4_Master.ucf(77)]: NET "inicio" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "inicio"				LOC = "T16"	|> [src/Nexys4_Master.ucf(77)]' could not be
-   found and so the Locate constraint will be removed.
-
-ERROR:ConstraintSystem:59 - Constraint <IOSTANDARD = "LVCMOS33";>
-   [src/Nexys4_Master.ucf(77)]: NET "inicio" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
 INFO:ConstraintSystem:178 - TNM 'sys_clk_pin', used in period specification
    'TS_sys_clk_pin', was traced into MMCME2_ADV instance clk25_24/mmcm_adv_inst.
    The following new TNM groups and period specifications were generated at the
@@ -173,14 +31,13 @@ Partition Implementation Status
 -------------------------------
 
 NGDBUILD Design Results Summary:
-  Number of errors:    18
-  Number of warnings:   9
+  Number of errors:     0
+  Number of warnings:   0
 
-Total memory usage is 458948 kilobytes
+Total memory usage is 458976 kilobytes
 
-Total REAL time to NGDBUILD completion:  9 sec
-Total CPU time to NGDBUILD completion:   9 sec
-
-One or more errors were found during NGDBUILD.  No NGD file will be written.
+Writing NGD file "test_cam.ngd" ...
+Total REAL time to NGDBUILD completion:  8 sec
+Total CPU time to NGDBUILD completion:   8 sec
 
 Writing NGDBUILD log file "test_cam.bld"...

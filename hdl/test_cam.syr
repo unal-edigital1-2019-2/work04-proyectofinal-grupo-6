@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.07 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.07 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Reading design: test_cam.prj
@@ -133,7 +133,6 @@ Parsing module <test_cam>.
 *                            HDL Elaboration                            *
 =========================================================================
 WARNING:HDLCompiler:1016 - "/home/ivan/work04-proyectofinal-grupo-6/hdl/src/test_cam.v" Line 109: Port LOCKED is not connected to this instance
-WARNING:HDLCompiler:1016 - "/home/ivan/work04-proyectofinal-grupo-6/hdl/src/test_cam.v" Line 170: Port inicio is not connected to this instance
 
 Elaborating module <test_cam>.
 
@@ -168,7 +167,7 @@ WARNING:HDLCompiler:413 - "/home/ivan/work04-proyectofinal-grupo-6/hdl/src/VGA_d
 WARNING:HDLCompiler:413 - "/home/ivan/work04-proyectofinal-grupo-6/hdl/src/test_cam.v" Line 162: Result of 17-bit expression is truncated to fit in 15-bit target.
 
 Elaborating module <cam_read(AW=15)>.
-WARNING:HDLCompiler:872 - "/home/ivan/work04-proyectofinal-grupo-6/hdl/src/cam_read.v" Line 47: Using initial value of f1 since it is never assigned
+WARNING:HDLCompiler:872 - "/home/ivan/work04-proyectofinal-grupo-6/hdl/src/cam_read.v" Line 48: Using initial value of f1 since it is never assigned
 
 Elaborating module <flip_flopD>.
 
@@ -179,14 +178,10 @@ WARNING:HDLCompiler:413 - "/home/ivan/work04-proyectofinal-grupo-6/hdl/conversor
 
 Elaborating module <contador>.
 WARNING:HDLCompiler:413 - "/home/ivan/work04-proyectofinal-grupo-6/hdl/contador.v" Line 30: Result of 17-bit expression is truncated to fit in 16-bit target.
-WARNING:HDLCompiler:189 - "/home/ivan/work04-proyectofinal-grupo-6/hdl/src/cam_read.v" Line 51: Size mismatch in connection of port <counter>. Formal port size is 16-bit while actual signal size is 15-bit.
+WARNING:HDLCompiler:189 - "/home/ivan/work04-proyectofinal-grupo-6/hdl/src/cam_read.v" Line 52: Size mismatch in connection of port <counter>. Formal port size is 16-bit while actual signal size is 15-bit.
 
 Elaborating module <cnt_ln_px>.
 WARNING:HDLCompiler:413 - "/home/ivan/work04-proyectofinal-grupo-6/hdl/cnt_ln_px.v" Line 27: Result of 9-bit expression is truncated to fit in 8-bit target.
-WARNING:HDLCompiler:189 - "/home/ivan/work04-proyectofinal-grupo-6/hdl/src/cam_read.v" Line 52: Size mismatch in connection of port <cont_href>. Formal port size is 8-bit while actual signal size is 1-bit.
-WARNING:HDLCompiler:1127 - "/home/ivan/work04-proyectofinal-grupo-6/hdl/src/cam_read.v" Line 52: Assignment to cont_href ignored, since the identifier is never used
-WARNING:HDLCompiler:552 - "/home/ivan/work04-proyectofinal-grupo-6/hdl/src/test_cam.v" Line 170: Input port inicio is not connected on this instance
-WARNING:Xst:2972 - "/home/ivan/work04-proyectofinal-grupo-6/hdl/src/cam_read.v" line 52. All outputs of instance <m6> of block <cnt_ln_px> are unconnected in block <cam_read>. Underlying logic will be removed.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -196,10 +191,9 @@ Synthesizing Unit <test_cam>.
     Related source file is "/home/ivan/work04-proyectofinal-grupo-6/hdl/src/test_cam.v".
         CAM_SCREEN_X = 160
         CAM_SCREEN_Y = 120
-WARNING:Xst:2898 - Port 'inicio', unconnected in block instance 'ov7076_565_to_332', is tied to GND.
 INFO:Xst:3210 - "/home/ivan/work04-proyectofinal-grupo-6/hdl/src/test_cam.v" line 110: Output port <LOCKED> of the instance <clk25_24> is unconnected or connected to loadless signal.
-    Found 16-bit adder for signal <n0023> created at line 162.
-    Found 9x7-bit multiplier for signal <n0029> created at line 162.
+    Found 16-bit adder for signal <n0024> created at line 162.
+    Found 9x7-bit multiplier for signal <n0030> created at line 162.
     Found 10-bit comparator greater for signal <GND_1_o_VGA_posX[9]_LessThan_4_o> created at line 159
     Found 9-bit comparator greater for signal <GND_1_o_VGA_posY[8]_LessThan_5_o> created at line 159
     Summary:
@@ -249,7 +243,6 @@ Unit <VGA_Driver640x480> synthesized.
 Synthesizing Unit <cam_read>.
     Related source file is "/home/ivan/work04-proyectofinal-grupo-6/hdl/src/cam_read.v".
         AW = 15
-INFO:Xst:3210 - "/home/ivan/work04-proyectofinal-grupo-6/hdl/src/cam_read.v" line 52: Output port <cont_href> of the instance <m6> is unconnected or connected to loadless signal.
     Summary:
 	no macro.
 Unit <cam_read> synthesized.
@@ -315,6 +308,25 @@ WARNING:Xst:647 - Input <vsync> is never used. This port will be preserved and l
 	inferred   2 Multiplexer(s).
 Unit <contador> synthesized.
 
+Synthesizing Unit <cnt_ln_px>.
+    Related source file is "/home/ivan/work04-proyectofinal-grupo-6/hdl/cnt_ln_px.v".
+    Found 8-bit adder for signal <cont_href[7]_GND_35_o_add_2_OUT> created at line 27.
+WARNING:Xst:737 - Found 1-bit latch for signal <cont_href<6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <cont_href<5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <cont_href<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <cont_href<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <cont_href<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <cont_href<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <cont_href<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <cont_href<7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found 8-bit comparator greater for signal <cont_href[7]_GND_35_o_LessThan_2_o> created at line 25
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   8 Latch(s).
+	inferred   1 Comparator(s).
+	inferred   1 Multiplexer(s).
+Unit <cnt_ln_px> synthesized.
+
 =========================================================================
 HDL Synthesis Report
 
@@ -323,10 +335,11 @@ Macro Statistics
  32768x8-bit dual-port RAM                             : 1
 # Multipliers                                          : 1
  9x7-bit multiplier                                    : 1
-# Adders/Subtractors                                   : 5
+# Adders/Subtractors                                   : 6
  10-bit adder                                          : 1
  16-bit adder                                          : 2
  4-bit adder                                           : 1
+ 8-bit adder                                           : 1
  9-bit adder                                           : 1
 # Registers                                            : 7
  1-bit register                                        : 3
@@ -334,20 +347,21 @@ Macro Statistics
  16-bit register                                       : 1
  8-bit register                                        : 1
  9-bit register                                        : 1
-# Latches                                              : 22
- 1-bit latch                                           : 22
-# Comparators                                          : 9
+# Latches                                              : 30
+ 1-bit latch                                           : 30
+# Comparators                                          : 10
  10-bit comparator greater                             : 4
  10-bit comparator lessequal                           : 1
  16-bit comparator greater                             : 1
+ 8-bit comparator greater                              : 1
  9-bit comparator greater                              : 2
  9-bit comparator lessequal                            : 1
-# Multiplexers                                         : 23
+# Multiplexers                                         : 24
  1-bit 2-to-1 multiplexer                              : 16
  15-bit 2-to-1 multiplexer                             : 1
  16-bit 2-to-1 multiplexer                             : 2
  4-bit 2-to-1 multiplexer                              : 3
- 8-bit 2-to-1 multiplexer                              : 1
+ 8-bit 2-to-1 multiplexer                              : 2
 
 =========================================================================
 
@@ -388,7 +402,7 @@ INFO:Xst:3226 - The RAM <Mram_ram> will be implemented as a BLOCK RAM, absorbing
 Unit <buffer_ram_dp> synthesized (advanced).
 
 Synthesizing (advanced) Unit <test_cam>.
-	Multiplier <Mmult_n0029> in block <test_cam> and adder/subtractor <Madd_n0023_Madd> in block <test_cam> are combined into a MAC<Maddsub_n0029>.
+	Multiplier <Mmult_n0030> in block <test_cam> and adder/subtractor <Madd_n0024_Madd> in block <test_cam> are combined into a MAC<Maddsub_n0030>.
 Unit <test_cam> synthesized (advanced).
 
 =========================================================================
@@ -399,26 +413,28 @@ Macro Statistics
  32768x8-bit dual-port block RAM                       : 1
 # MACs                                                 : 1
  9x7-to-15-bit MAC                                     : 1
-# Adders/Subtractors                                   : 2
+# Adders/Subtractors                                   : 3
  16-bit adder                                          : 1
  4-bit adder                                           : 1
+ 8-bit adder                                           : 1
 # Counters                                             : 2
  10-bit up counter                                     : 1
  9-bit up counter                                      : 1
 # Registers                                            : 19
  Flip-Flops                                            : 19
-# Comparators                                          : 9
+# Comparators                                          : 10
  10-bit comparator greater                             : 4
  10-bit comparator lessequal                           : 1
  16-bit comparator greater                             : 1
+ 8-bit comparator greater                              : 1
  9-bit comparator greater                              : 2
  9-bit comparator lessequal                            : 1
-# Multiplexers                                         : 23
+# Multiplexers                                         : 24
  1-bit 2-to-1 multiplexer                              : 16
  15-bit 2-to-1 multiplexer                             : 1
  16-bit 2-to-1 multiplexer                             : 2
  4-bit 2-to-1 multiplexer                              : 3
- 8-bit 2-to-1 multiplexer                              : 1
+ 8-bit 2-to-1 multiplexer                              : 2
 
 =========================================================================
 
@@ -431,6 +447,8 @@ Optimizing unit <test_cam> ...
 Optimizing unit <conversor1> ...
 
 Optimizing unit <contador> ...
+
+Optimizing unit <cnt_ln_px> ...
 
 Optimizing unit <VGA_Driver640x480> ...
 WARNING:Xst:1293 - FF/Latch <ov7076_565_to_332/m5/counter_15> has a constant value of 0 in block <test_cam>. This FF/Latch will be trimmed during the optimization process.
@@ -469,19 +487,19 @@ Top Level Output File Name         : test_cam.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 269
+# BELS                             : 282
 #      GND                         : 1
-#      INV                         : 3
+#      INV                         : 4
 #      LUT1                        : 35
-#      LUT2                        : 34
-#      LUT3                        : 15
-#      LUT4                        : 14
-#      LUT5                        : 17
-#      LUT6                        : 40
+#      LUT2                        : 35
+#      LUT3                        : 18
+#      LUT4                        : 15
+#      LUT5                        : 20
+#      LUT6                        : 44
 #      MUXCY                       : 52
 #      VCC                         : 1
 #      XORCY                       : 57
-# FlipFlops/Latches                : 59
+# FlipFlops/Latches                : 67
 #      FD                          : 17
 #      FDC                         : 1
 #      FDC_1                       : 1
@@ -490,15 +508,16 @@ Primitive and Black Box Usage:
 #      FDS                         : 2
 #      FDSE                        : 4
 #      LD                          : 22
+#      LDCE                        : 8
 # RAMS                             : 8
 #      RAMB36E1                    : 8
 # Clock Buffers                    : 6
 #      BUFG                        : 5
 #      BUFGP                       : 1
-# IO Buffers                       : 29
+# IO Buffers                       : 37
 #      IBUF                        : 11
 #      IBUFG                       : 1
-#      OBUF                        : 17
+#      OBUF                        : 25
 # Others                           : 1
 #      MMCME2_ADV                  : 1
 
@@ -509,20 +528,20 @@ Selected Device : 7a100tcsg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:              59  out of  126800     0%  
- Number of Slice LUTs:                  158  out of  63400     0%  
-    Number used as Logic:               158  out of  63400     0%  
+ Number of Slice Registers:              67  out of  126800     0%  
+ Number of Slice LUTs:                  171  out of  63400     0%  
+    Number used as Logic:               171  out of  63400     0%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    167
-   Number with an unused Flip Flop:     108  out of    167    64%  
-   Number with an unused LUT:             9  out of    167     5%  
-   Number of fully used LUT-FF pairs:    50  out of    167    29%  
-   Number of unique control sets:        12
+ Number of LUT Flip Flop pairs used:    180
+   Number with an unused Flip Flop:     113  out of    180    62%  
+   Number with an unused LUT:             9  out of    180     5%  
+   Number of fully used LUT-FF pairs:    58  out of    180    32%  
+   Number of unique control sets:        13
 
 IO Utilization: 
- Number of IOs:                          30
- Number of bonded IOBs:                  30  out of    210    14%  
+ Number of IOs:                          39
+ Number of bonded IOBs:                  38  out of    210    18%  
 
 Specific Feature Utilization:
  Number of Block RAM/FIFO:                8  out of    135     5%  
@@ -558,6 +577,7 @@ ov7076_565_to_332/m3/GND_11_o_GND_11_o_MUX_81_o(ov7076_565_to_332/m3/Mmux_GND_11
 ov7076_565_to_332/m3/GND_11_o_GND_11_o_AND_103_o(ov7076_565_to_332/m3/GND_11_o_GND_11_o_AND_103_o2:O)      | NONE(*)(ov7076_565_to_332/m3/PX_byte_0)    | 2     |
 ov7076_565_to_332/m3/GND_11_o_GND_11_o_AND_91_o(ov7076_565_to_332/m3/GND_11_o_GND_11_o_AND_91_o1:O)        | NONE(*)(ov7076_565_to_332/m3/PX_byte_2)    | 6     |
 CAM_pclk                                                                                                   | IBUF+BUFG                                  | 24    |
+ov7076_565_to_332/m3/write                                                                                 | NONE(ov7076_565_to_332/m6/cont_href_6)     | 8     |
 clk25_24/clkout0                                                                                           | BUFG                                       | 27    |
 -----------------------------------------------------------------------------------------------------------+--------------------------------------------+-------+
 (*) These 6 clock signal(s) are generated by combinatorial logic,
@@ -658,6 +678,29 @@ Delay:               2.453ns (Levels of Logic = 11)
                                        (62.7% logic, 37.3% route)
 
 =========================================================================
+Timing constraint: Default period analysis for Clock 'ov7076_565_to_332/m3/write'
+  Clock period: 2.192ns (frequency: 456.184MHz)
+  Total number of paths / destination ports: 164 / 24
+-------------------------------------------------------------------------
+Delay:               2.192ns (Levels of Logic = 2)
+  Source:            ov7076_565_to_332/m6/cont_href_7 (LATCH)
+  Destination:       ov7076_565_to_332/m6/cont_href_6 (LATCH)
+  Source Clock:      ov7076_565_to_332/m3/write falling
+  Destination Clock: ov7076_565_to_332/m3/write falling
+
+  Data Path: ov7076_565_to_332/m6/cont_href_7 to ov7076_565_to_332/m6/cont_href_6
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDCE:G->Q             4   0.472   0.570  ov7076_565_to_332/m6/cont_href_7 (ov7076_565_to_332/m6/cont_href_7)
+     LUT5:I1->O            1   0.097   0.295  ov7076_565_to_332/m6/GND_35_o_GND_35_o_OR_54_o_SW0 (N16)
+     LUT6:I5->O            8   0.097   0.311  ov7076_565_to_332/m6/GND_35_o_GND_35_o_OR_54_o (ov7076_565_to_332/m6/GND_35_o_GND_35_o_OR_54_o)
+     LDCE:CLR                  0.349          ov7076_565_to_332/m6/cont_href_4
+    ----------------------------------------
+    Total                      2.192ns (1.015ns logic, 1.177ns route)
+                                       (46.3% logic, 53.7% route)
+
+=========================================================================
 Timing constraint: Default period analysis for Clock 'clk25_24/clkout0'
   Clock period: 2.111ns (frequency: 473.709MHz)
   Total number of paths / destination ports: 290 / 28
@@ -673,7 +716,7 @@ Delay:               2.111ns (Levels of Logic = 3)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FD:C->Q               3   0.361   0.693  VGA640x480/countX_3 (VGA640x480/countX_3)
-     LUT5:I0->O            1   0.097   0.295  VGA640x480/Mcount_countX_val13_SW0 (N16)
+     LUT5:I0->O            1   0.097   0.295  VGA640x480/Mcount_countX_val13_SW0 (N20)
      LUT6:I5->O           19   0.097   0.463  VGA640x480/Mcount_countX_val13 (VGA640x480/Mcount_countX_val1)
      LUT3:I1->O            1   0.097   0.000  VGA640x480/countX_7_glue_rst (VGA640x480/countX_7_glue_rst)
      FDS:D                     0.008          VGA640x480/countX_7
@@ -838,12 +881,31 @@ Offset:              1.784ns (Levels of Logic = 3)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FDSE:C->Q            14   0.361   0.571  VGA640x480/countY_6 (VGA640x480/countY_6)
-     LUT3:I0->O            1   0.097   0.379  VGA640x480/Vsync_n_SW0 (N14)
+     LUT3:I0->O            1   0.097   0.379  VGA640x480/Vsync_n_SW0 (N18)
      LUT6:I4->O            1   0.097   0.279  VGA640x480/Vsync_n (VGA_Vsync_n_OBUF)
      OBUF:I->O                 0.000          VGA_Vsync_n_OBUF (VGA_Vsync_n)
     ----------------------------------------
     Total                      1.784ns (0.555ns logic, 1.229ns route)
                                        (31.1% logic, 68.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'ov7076_565_to_332/m3/write'
+  Total number of paths / destination ports: 8 / 8
+-------------------------------------------------------------------------
+Offset:              0.793ns (Levels of Logic = 1)
+  Source:            ov7076_565_to_332/m6/cont_href_0 (LATCH)
+  Destination:       CAM_cnt_linea<0> (PAD)
+  Source Clock:      ov7076_565_to_332/m3/write falling
+
+  Data Path: ov7076_565_to_332/m6/cont_href_0 to CAM_cnt_linea<0>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDCE:G->Q            10   0.472   0.321  ov7076_565_to_332/m6/cont_href_0 (ov7076_565_to_332/m6/cont_href_0)
+     OBUF:I->O                 0.000          CAM_cnt_linea_0_OBUF (CAM_cnt_linea<0>)
+    ----------------------------------------
+    Total                      0.793ns (0.472ns logic, 0.321ns route)
+                                       (59.6% logic, 40.4% route)
 
 =========================================================================
 Timing constraint: Default path analysis
@@ -883,7 +945,7 @@ Clock to Setup on destination clock CAM_vsync
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-CAM_pclk       |    1.068|         |    1.068|         |
+CAM_pclk       |    1.073|         |    1.073|         |
 CAM_vsync      |         |         |    0.648|         |
 ---------------+---------+---------+---------+---------+
 
@@ -900,7 +962,7 @@ Clock to Setup on destination clock ov7076_565_to_332/m3/GND_11_o_GND_11_o_AND_1
                                                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -----------------------------------------------+---------+---------+---------+---------+
-CAM_pclk                                       |         |         |    1.093|         |
+CAM_pclk                                       |         |         |    1.098|         |
 ov7076_565_to_332/m3/GND_11_o_GND_11_o_MUX_81_o|         |         |    1.337|         |
 -----------------------------------------------+---------+---------+---------+---------+
 
@@ -909,7 +971,7 @@ Clock to Setup on destination clock ov7076_565_to_332/m3/GND_11_o_GND_11_o_AND_9
                                                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -----------------------------------------------+---------+---------+---------+---------+
-CAM_pclk                                       |         |         |    0.832|         |
+CAM_pclk                                       |         |         |    0.837|         |
 ov7076_565_to_332/m3/GND_11_o_GND_11_o_MUX_81_o|         |         |    1.327|         |
 -----------------------------------------------+---------+---------+---------+---------+
 
@@ -918,7 +980,7 @@ Clock to Setup on destination clock ov7076_565_to_332/m3/GND_11_o_GND_11_o_MUX_1
                                                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -----------------------------------------------+---------+---------+---------+---------+
-CAM_pclk                                       |         |         |    1.230|         |
+CAM_pclk                                       |         |         |    1.235|         |
 CAM_vsync                                      |         |         |    1.274|         |
 ov7076_565_to_332/m3/GND_11_o_GND_11_o_MUX_81_o|         |         |    1.312|         |
 -----------------------------------------------+---------+---------+---------+---------+
@@ -928,7 +990,7 @@ Clock to Setup on destination clock ov7076_565_to_332/m3/GND_11_o_GND_11_o_MUX_8
                                                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -----------------------------------------------+---------+---------+---------+---------+
-CAM_pclk                                       |         |         |    1.848|         |
+CAM_pclk                                       |         |         |    1.853|         |
 CAM_vsync                                      |         |         |    1.594|         |
 ov7076_565_to_332/m3/GND_11_o_GND_11_o_MUX_81_o|         |         |    1.327|         |
 -----------------------------------------------+---------+---------+---------+---------+
@@ -938,7 +1000,7 @@ Clock to Setup on destination clock ov7076_565_to_332/m3/GND_11_o_GND_11_o_MUX_9
                                                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -----------------------------------------------+---------+---------+---------+---------+
-CAM_pclk                                       |         |         |    0.916|         |
+CAM_pclk                                       |         |         |    0.921|         |
 CAM_vsync                                      |         |         |    1.186|         |
 ov7076_565_to_332/m3/GND_11_o_GND_11_o_MUX_81_o|         |         |    1.337|         |
 -----------------------------------------------+---------+---------+---------+---------+
@@ -952,18 +1014,28 @@ ov7076_565_to_332/m3/GND_11_o_GND_11_o_AND_103_o|         |         |    0.751| 
 ov7076_565_to_332/m3/GND_11_o_GND_11_o_AND_91_o |         |         |    0.751|         |
 ------------------------------------------------+---------+---------+---------+---------+
 
+Clock to Setup on destination clock ov7076_565_to_332/m3/write
+------------------------------------------------+---------+---------+---------+---------+
+                                                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                                    |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+------------------------------------------------+---------+---------+---------+---------+
+CAM_pclk                                        |         |         |    1.895|         |
+ov7076_565_to_332/m3/GND_11_o_GND_11_o_MUX_109_o|         |         |    2.413|         |
+ov7076_565_to_332/m3/write                      |         |         |    2.192|         |
+------------------------------------------------+---------+---------+---------+---------+
+
 =========================================================================
 
 
-Total REAL time to Xst completion: 18.00 secs
-Total CPU time to Xst completion: 14.68 secs
+Total REAL time to Xst completion: 14.00 secs
+Total CPU time to Xst completion: 14.41 secs
  
 --> 
 
 
-Total memory usage is 506644 kilobytes
+Total memory usage is 506784 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   57 (   0 filtered)
-Number of infos    :    4 (   0 filtered)
+Number of warnings :   59 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
 

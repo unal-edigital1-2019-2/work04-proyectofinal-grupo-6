@@ -1,0 +1,35 @@
+Release 14.7 Drc P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Tue Feb 11 07:37:02 2020
+
+drc -z test_cam.ncd test_cam.pcf
+
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   ov7076_565_to_332/m3/GND_11_o_GND_11_o_AND_103_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   ov7076_565_to_332/m3/GND_11_o_GND_11_o_AND_91_o is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading
+   of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   ov7076_565_to_332/m3/GND_11_o_GND_11_o_MUX_81_o is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading
+   of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   ov7076_565_to_332/m3/GND_11_o_GND_11_o_MUX_95_o is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading
+   of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   ov7076_565_to_332/m3/GND_11_o_GND_11_o_MUX_109_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   ov7076_565_to_332/m3/GND_11_o_GND_11_o_MUX_94_o is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading
+   of data into the flip-flop.
+WARNING:PhysDesignRules:367 - The signal <inicio_IBUF> is incomplete. The signal
+   does not drive any load pins in the design.
+DRC detected 0 errors and 7 warnings.  Please see the previously displayed
+individual error or warning messages for more details.
