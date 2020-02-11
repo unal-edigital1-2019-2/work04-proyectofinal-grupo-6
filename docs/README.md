@@ -11,9 +11,13 @@
 
 ## Metodología
 
+El diseño del diagrama estructural de la captura de datos es el que se presenta a continuación.
+![calculos](https://github.com/unal-edigital1-2019-2/work04-proyectofinal-grupo-6/blob/master/docs/figs/caja.png)
+
 Una vez que se ha tenido diseñado el diagrama estructural del programa, se procedió a crear los módulos de tal forma que internamente quedaran de acuerdo al diseño propuesto, es decir, que al momento de realizar el código en el módulo de cam_read_, su pudiera diferenciar que parte pertenecia a la memoria y que parte pertenecía a la lógica combinacional. A continuación, en la siguiente figura se puede observar  el esquema generado en HDL.
 
-![calculos](https://github.com/unal-edigital1-2019-2/work04-proyectofinal-grupo-6/blob/master/docs/figs/caja.png)
+![calculos](https://github.com/unal-edigital1-2019-2/work03-smulacion-ov7670-grupo-06/blob/master/docs/figs/esquema%20cam_read_interno.png)
+
 
 
 Se pensó en el diseño de 2 flip-flops, uno con flanco de subida y otro con flanco de bajada los cuales detectaban la señal de vsync. Al momento de tomar una foto, estos flip-flops  bloquean  la captura de datos hasta que el usuario pulse un boton (denominado new_photo) y así se realice una nueva captura. Se puede apreciar también el módulo "contador" el cual va realizando la cuenta del número de pixeles capturados y grabados en la RAM. Una vez que se ha tomado la captura completa de la  imagen, este contador bloquea los demás módulos, entre ellos los flip-flops hasta que el usuario decida tomar una nueva foto.
@@ -229,11 +233,15 @@ como última prueba se quizo hacer un ensayo de forma particular, en el que la v
 
 ### Resultados laboratorio:
 
+Una vez implementado el código y sintetizado, se cargó en la fpga NEXYS 4. Al parecer, debido a problemas con la señal del pulso de reloj del pclk o del xclk, no se pudo obtentener la imagen esperada pues se obtuvo la imagen que viene por defecto en el paquete de trabajo. Se intentó cambiar la configuración del clock con la misma que tenían otros compañeros a quienes si les funcionó, pero se obtuvo el mismo resultado.
+
 ![calculos](https://github.com/unal-edigital1-2019-2/work04-proyectofinal-grupo-6/blob/master/docs/figs/IMG_20200210_151628.jpg)
 
 ![calculos](https://github.com/unal-edigital1-2019-2/work04-proyectofinal-grupo-6/blob/master/docs/figs/IMG_20200210_151633.jpg)
 
 ![calculos](https://github.com/unal-edigital1-2019-2/work04-proyectofinal-grupo-6/blob/master/docs/figs/IMG_20200210_151636.jpg)
+
+En la siguiente imagen se puede apreciar que si bien la simulacion funcionaba correctamente, al momento de cargar el código, se obtenía la imagen precargada en el paquete de trabajo.
 
 ![calculos](https://github.com/unal-edigital1-2019-2/work04-proyectofinal-grupo-6/blob/master/docs/figs/IMG_20200210_165046.jpg)
 
