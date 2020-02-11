@@ -227,7 +227,7 @@ como última prueba se quizo hacer un ensayo de forma particular, en el que la v
 ![calculos](https://github.com/unal-edigital1-2019-2/work03-smulacion-ov7670-grupo-06/blob/master/docs/figs/4er%20resultado.png)
 
 
-
+![calculos](https://github.com/unal-edigital1-2019-2/work04-proyectofinal-grupo-6/blob/master/docs/figs/IMG_20200210_151628.jpg)
 
 
 
