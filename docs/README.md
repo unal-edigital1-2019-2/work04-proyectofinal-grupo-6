@@ -190,7 +190,7 @@ endmodule
 ```
 
 
-### Configuración de la cámara (Arduino)
+## Configuración de la cámara (Arduino)
 
 Para la configuración de la cámara se utilizó arduino implementando el siguiente código para la configuración de registros, COM7, COM3, COM15, etc...
 ```arduino
@@ -218,7 +218,9 @@ OV7670_write(0x3A,0x04);
 
 ```
 
+Luego de configurar correctamente la cámara debe aparecer en la consola la verificación de los registros configurados
 
+![calculos](https://github.com/unal-edigital1-2019-2/work04-proyectofinal-grupo-6/blob/master/docs/figs/Captura%20de%20pantalla%20de%202020-02-12%2010-24-26.png)
 
 ## simulaciones (TestBench):
 
