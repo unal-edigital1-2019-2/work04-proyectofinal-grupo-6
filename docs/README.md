@@ -32,7 +32,7 @@ A partir de este diagrama de flujo, se empezó a diseñar la máquina de estados
 
 ![calculos](https://github.com/unal-edigital1-2019-2/work04-proyectofinal-grupo-6/blob/master/docs/figs/maquina-de-estados%20(1).jpg)
 
-### código:
+### Bloque de captura
 
 #### flip-flops de flanco de subida y bajada conectados en serie para detectar vsync
 
@@ -188,6 +188,37 @@ end//2
 end
 endmodule
 ```
+
+
+### Configuración de la cámara (Arduino)
+
+Para la configuración de la cámara se utilizó arduino implementando el siguiente código para la configuración de registros, COM7, COM3, COM15, etc...
+```arduino
+   
+  OV7670_write(0x12, 0x80);
+
+  delay(100);
+ 
+ OV7670_write(0x12, 0x0C);  //COM7: Set QCIF and RGB
+ OV7670_write(0x11, 0xC0);       //CLKR: Set internal clock to use external clock
+ OV7670_write(0x0C, 0x08);       //COM3: Enable Scaler
+ OV7670_write(0x3E, 0x00);
+ OV7670_write(0x40,0xD0);      //COM15: Set RGB 565
+
+ //Color Bar
+ //OV7670_write(0x42, 0x08); 
+ //OV7670_write(0x12, 0x0E);
+
+
+ //Registros Mágicos 
+OV7670_write(0x3A,0x04);
+
+ OV7670_write(0x14,0x18); // control de ganancia 
+
+
+```
+
+
 
 ## simulaciones (TestBench):
 
