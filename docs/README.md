@@ -133,7 +133,7 @@ end
 endmodule  
 ```
 
-
+![calculos](https://github.com/unal-edigital1-2019-2/work04-proyectofinal-grupo-6/blob/master/docs/figs/Conversiondergb.png)
 
 
 ### Módulo contador de pixeles
