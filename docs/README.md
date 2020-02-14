@@ -133,6 +133,9 @@ end
 endmodule  
 ```
 
+
+
+
 ### Módulo contador de pixeles
 
 En este módulo se aumenta el valor del contador a medida que se termina de cargar el byte que contiene el pixel en formato RGB332 en la memoria RAM de la cámara. La señal de salida  add_cnt=0 que proviene del módulo conversor, llega a add_cnt declarado como una entrada en el modulo contador. Si esta entrada es igual a cero, entonces se aumenta en 1 el valor del contador; si es igual a cero, entonces se espera hasta que se cargue un nuevo byte a la memoria. Una vez alcanzado el tope máximo del contador, es decir, 19200 entonces se carga este último byte y luego cuando href sea igual a cero se reinicia el contador y además se activa una señal de salida out_reset=1 que bloquea a los flip flops de vsync hasta que el usuario active un boton de entrada denominado inicio que llega a la entrada inicio del módulo contador de pixeles para realizar una nueva captura de imagen.
@@ -168,7 +171,7 @@ end
 
 endmodule
 ```
-### contador de pixeles de línea
+### Contador de pixeles de línea
  
 Finalmente, el módulo cnt_ln_px se encarga de contar cuantos pixeles son grabados en cada linea horizontal de la pantalla. La condición básica es que si está activo write=1 y la variable cont_href es menor a 123 entonces aumente la cuenta en uno hasta llegar al tope maximo y luego se resetea e inicia una nueva cuenta.
 ```verilog
@@ -222,11 +225,43 @@ Luego de configurar correctamente la cámara debe aparecer en la consola la veri
 
 ![calculos](https://github.com/unal-edigital1-2019-2/work04-proyectofinal-grupo-6/blob/master/docs/figs/Captura%20de%20pantalla%20de%202020-02-12%2010-24-26.png)
 
-## simulaciones (TestBench):
+
+### Módulo VGA 
+
+El módulo VGA está configurado a partir de las señales: 
+
+- clk:   El cuál es de 25MHz  para 60 hz de 640x480.
+
+- hsync  El cuál es la señal de clock para la sincronizacion Horizontal 
+
+- FRONT_PORCH_X =16, SYNC_PULSE_X = 96, BACK_PORCH_X = 28   Los cuáles son Margenes invisibles que posee la pantalla en horizontal
+
+- TOTAL_SCREEN_X = SCREEN_X+FRONT_PORCH_X+SYNC_PULSE_X+BACK_PORCH_X; 	Finalmente al sumar todas estas señales se tiene el total de pixeles en pantalla en horizontal.
+
+- vsync  El cuál es la señal de clock para la sincronizacion Vertical.
+
+- FRONT_PORCH_Y =10; SYNC_PULSE_Y = 2; BACK_PORCH_Y = 33;  Los cuáles son Margenes invisibles que posee la pantalla en Vertical
+
+- TOTAL_SCREEN_Y = SCREEN_Y+FRONT_PORCH_Y+SYNC_PULSE_Y+BACK_PORCH_Y; 	Finalmente al sumar todas estas señales se tiene el total de pixeles en pantalla en Vertical.
+
+
+### Módulo Dual Port RAM
+El buffer_ram_dp depende de dos parámetros
+
+	parameter AW = 15, // Cantidad de bits  de la dirección 
+	parameter DW = 8, // Cantidad de Bits de los datos 
+
+En este caso sus valores son 15 y 18 para la resolución QCIF, sin embargo pueden usarse otras resoluciones, para esto recomendamos revisar la explicación de los calculos y del bufer de memoria.
+El cual fue realizado en el paquete de trabajo número  1:  https://github.com/unal-edigital1-2019-2/work01-ramdp-grupo-06/tree/master/docs
+Como ejemplo para almacenar datos en con RGB 565 y con Resolución 640x480 sería así
+![calculos](https://github.com/unal-edigital1-2019-2/work01-ramdp-grupo-06/blob/master/docs/figs/Matriz.png)
+
+
+## Simulaciones (TestBench):
 
 
 
-### primeros resultados:
+### Primeros resultados:
 
 Luego de tener diseñado el módulo de captura de datos de la camara, se simuló para determinar las primeras fallas posibles. En la primera prueba se obtuvo el siguiente resultado, en donde se evidencia que hubo un problema con la inicializacion de las variables.
 
